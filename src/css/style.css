@@ -271,7 +271,10 @@ figure {
 }
 
 .content-image {
+    height: 330px;
     width: 100%;
+    object-fit: cover;
+    object-position: center left;
 }
 
 .content-details {
@@ -301,9 +304,16 @@ figure {
     text-transform: uppercase;
 }
 
+.content-details h4 {
+    color: #fff;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
 .content-details p {
     color: #fff;
-    font-size: 0.8em;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
 }
 
 .fadeIn-top {
