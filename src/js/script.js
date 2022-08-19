@@ -61,3 +61,14 @@ function initAnimaScroll() {
 }
 
 initAnimaScroll();
+
+let btnMobile = document.getElementById('btn-mobile');
+let navMenu = document.querySelector('.nav-menu');
+let logo = document.querySelector('.logo');
+
+function toggleMenu() {
+    navMenu.classList.toggle('active');
+    logo.classList.toggle('active');
+}
+
+btnMobile.addEventListener('click', toggleMenu);

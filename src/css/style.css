@@ -13,7 +13,7 @@ body {
 }
 
 ::selection {
-    background-color: #7a49ff;
+    background-color: var(--main);
     color: #fff;
 }
 
@@ -78,6 +78,14 @@ header ul li:not(:last-child) {
 
 .nav-link:hover:after {
     width: 100%;
+}
+
+.top-menu {
+    width: fit-content;
+}
+
+#btn-mobile {
+    display: none;
 }
 
 #introduction {
@@ -428,7 +436,7 @@ figure {
 }
 
 #btn-up:hover {
-    background-color: #7a49ff;
+    background-color: var(--main);
     background-image: url('../img/arrowUp-hover.png');
 }
   
@@ -515,10 +523,21 @@ footer {
     }
 }
 
+@media (max-width: 725px) {
+    header h1 {
+        display: none;
+    }
+}
+
+
 @media (max-width: 574px) {
 
     header {
         margin-bottom: 30px;
+    }
+
+    .container .logo {
+        display: contents;
     }
 
     .projects {
@@ -536,13 +555,93 @@ footer {
     #introduction {
         margin-bottom: 40px;
     }
-}
 
-@media (max-width: 725px) {
-    header h1 {
-        display: none;
+    #btn-mobile {
+        display: flex;
+        margin-left: 255px;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+
+    #hamburger {
+        display: block;
+        border-top: 2px solid;
+        width: 20x;
+        color: #171717;
+    }
+
+    #hamburger::after,
+    #hamburger::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        margin-top: 5px;
+    }
+
+    .nav-menu.active #hamburger {
+        background-color: red;
+    }
+
+    .nav-menu {
+        display: block;
+        position: absolute;
+        background-color: var(--main);
+        width: 100%;
+        top: 26px;
+        right: 0;
+        z-index: 10;
+        height: 0;
+        transition: .6s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    
+    .nav-menu.active {       
+        height: calc(100vh - 26px);
+        visibility: visible;
+        overflow-y: auto;
+        margin-top: 35px;    
+    }
+
+    .top-menu {
+        display: flex;
+        width: 100vw;
+        background-color: var(--main);
+        justify-content: space-around;
+        position: relative;
+        position: absolute;
+        z-index: 99999;
+        right: 0px;
+        padding: 10px 0;    
+    }
+
+
+    .nav-menu li {
+        margin-right: 0 !important;
+        padding: 15px 0 0px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid rgba(255,255,255, 0.08);
+    }
+
+    .nav-menu a {
+        padding: 1rem 0;
+        color: #fff;
+    }
+
+    .about {
+        margin-top: 75px;
     }
 }
+
+
 
 @media (max-width: 375px) {
     header {
