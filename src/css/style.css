@@ -558,6 +558,7 @@ footer {
 
     #btn-mobile {
         display: flex;
+        align-items: center;
         margin-left: 255px;
         padding: .5rem 1rem;
         font-size: 1rem;
@@ -572,6 +573,7 @@ footer {
         border-top: 2px solid;
         width: 20x;
         color: #171717;
+        margin: 0;
     }
 
     #hamburger::after,
@@ -582,10 +584,21 @@ footer {
         height: 2px;
         background-color: currentColor;
         margin-top: 5px;
+        transition: .3s;
+        position: relative;
     }
 
-    .nav-menu.active #hamburger {
-        background-color: red;
+    .top-menu.active #hamburger {
+        border-top-color: transparent;
+    }
+
+    .top-menu.active #hamburger::before {
+        transform: rotate(135deg);
+    }
+
+    .top-menu.active #hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
     }
 
     .nav-menu {
@@ -606,11 +619,12 @@ footer {
         height: calc(100vh - 26px);
         visibility: visible;
         overflow-y: auto;
-        margin-top: 35px;    
+        margin-top: 28px;    
     }
 
     .top-menu {
         display: flex;
+        align-items: center;
         width: 100vw;
         background-color: var(--main);
         justify-content: space-around;
@@ -618,7 +632,7 @@ footer {
         position: absolute;
         z-index: 99999;
         right: 0px;
-        padding: 10px 0;    
+        padding: 10px 0;   
     }
 
 

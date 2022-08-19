@@ -16,7 +16,7 @@ function scrollToIdOnClick(event) {
     });
 }
 
-btnUpToTop = document.getElementById("btn-up");
+let btnUpToTop = document.getElementById("btn-up");
 
 // Quando o usuário scrollar mais de 30px do topo da página o botão aparece
 
@@ -62,13 +62,30 @@ function initAnimaScroll() {
 
 initAnimaScroll();
 
-let btnMobile = document.getElementById('btn-mobile');
-let navMenu = document.querySelector('.nav-menu');
-let logo = document.querySelector('.logo');
+// =========================================== MENU MOBILE ===========================================
 
 function toggleMenu() {
-    navMenu.classList.toggle('active');
-    logo.classList.toggle('active');
+    let btnMobile = document.getElementById('btn-mobile');
+    let navMenu = document.querySelector('.nav-menu');
+    let logo = document.querySelector('.logo');
+    let containerMenu = document.querySelector('.top-menu');
+
+    function menuMobile(event) {
+        if(event.type === 'touchstart') event.preventDefault(); // previne comportamento para nao executar a funcao de click e touch ao mesmo tempo
+        navMenu.classList.toggle('active');
+        logo.classList.toggle('active');
+        containerMenu.classList.toggle('active');
+        const active = containerMenu.classList.contains('active');    
+        event.currentTarget.setAttribute('aria-expanded', active);
+        if(active) {
+            event.currentTarget.setAttribute('aria-label', 'Fechar menu');
+        } else {
+            event.currentTarget.setAttribute('aria-label', 'Abrir menu');
+        }
+    }
+
+    btnMobile.addEventListener('click', menuMobile);
+    btnMobile.addEventListener('touchstart', menuMobile);
 }
 
-btnMobile.addEventListener('click', toggleMenu);
+toggleMenu();
